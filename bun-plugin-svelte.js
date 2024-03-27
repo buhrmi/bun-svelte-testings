@@ -1,10 +1,9 @@
 import { plugin } from "bun";
+import { compile } from "svelte/compiler";
 
 plugin({
   name: "svelte loader",
-  async setup(build) {
-    const { compile } = await import("svelte/compiler");
-
+  setup(build) {
     // when a .svelte file is imported...
     build.onLoad({ filter: /\.svelte$/ }, async ({ path }) => {
 
